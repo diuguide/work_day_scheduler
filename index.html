@@ -10,9 +10,15 @@
     <style>
         .startbtn {
             color: #84A98C;
+
         }
 
-        #time-block {
+        #clock {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .blocks {
             border: 1px solid black;
             margin: 5px;
             padding: 5px;
@@ -77,9 +83,16 @@
 
 <body>
     <div class="container" id="container">
-        <div class="row">
+        <div class="row" id="topRow">
             <div class="col-2 m-2">
                 <button class="startbtn" id="renderBlock">Print Schedule</button>
+            </div>
+            <div class="col-4 m-2" id="clock"></div>
+            <div class="col-2 m-2" id="save">
+                <button class="startbtn" id="saveBtn">Save</button>
+            </div>
+            <div class="col-2 m-2" id="load">
+                <button class="startbtn" id="loadBtn">Load Recent</button>
             </div>
         </div>
 
@@ -93,31 +106,31 @@
                 "10:00",
                 "11:00",
                 "12:00",
-                "1:00",
-                "2:00",
-                "3:00",
-                "4:00",
-                "5:00",
-                "6:00",
-                "7:00",
-                "8:00",
-                "9:00",
+                "13:00",
+                "14:00",
+                "15:00",
+                "16:00",
+                "17:00",
+                "18:00",
             ];
             let rowEl = $("<div>");
-            let buttonEl = $("<button>").attr('id', 'editBtn');
+
 
             function renderSchedule() {
                 for (i = 0; i < hours.length; i++) {
                     var hourString = i.toString();
-                    rowEl.addClass("row");
-                    rowEl.attr("id", "time-block");
-                    $("#container").append(rowEl);
-                    rowEl.append($("<div>").text(hours[i]).addClass('col-1').attr('id', 'time'));
-                    rowEl.append($("<div>").addClass('col-10').attr('id', `${hourString}`));
-                    let middleCol = $("#" + hourString);
-                    middleCol.append($('<form>').attr('id', 'textBox-' + hourString));
+
+                    $("#container").append($('<div>').addClass('row blocks').attr("id", "time-block-" + hourString));
+
+                    $('#time-block-' + hourString).append($("<div>").text(hours[i]).addClass('col-1').attr('id', 'time'));
+
+                    $('#time-block-' + hourString).append($("<div>").addClass('col-10').attr('id', `${hourString}`));
+
+                    $("#" + hourString).append($('<form>').attr('id', 'textBox-' + hourString));
+
                     $('#textBox-' + hourString).append($('<textarea>').addClass('form-control').attr('id', 'textForm-' + hourString).attr('rows', '1'));
-                    rowEl.append($("<button>").text('Add Task').addClass('col-1').attr('id', 'editBtn-' + hourString));
+
+                    $('#time-block-' + hourString).append($("<button>").text('Add Task').addClass('col-1').attr('id', 'editBtn-' + hourString));
                 }
                 $('#editBtn-0').on('click', function () {
                     let taskInput = $('#textForm-0').val();
@@ -184,12 +197,23 @@
                     $('#12').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
+                if (moment().format('LT').isAfter('10:00')) {
+                    alert('hello!');
+                }
             }
 
-            $('#renderBlock').on('click', renderSchedule);
+            $('#renderBlock').on('click', function () {
+                renderSchedule();
+            });
+            function update() {
+                $('#clock').html(moment().format('MMMM D, YYYY H:mm:ss'));
+            }
+
+            setInterval(update, 1000);
 
         });
     </script>
+    <script src="moment.js"></script>
 </body>
 
 </html>
