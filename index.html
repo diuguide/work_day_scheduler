@@ -197,19 +197,55 @@
                     $('#12').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
-                if (moment().format('LT').isAfter('10:00')) {
-                    alert('hello!');
-                }
+                //if (moment().format('H:mm').isAfter('18:00')) {
+                //$('#time-block-0').setOpacity(0.2);
+                //}
             }
 
             $('#renderBlock').on('click', function () {
                 renderSchedule();
+
+                if (moment().isAfter(moment('10:00', "hh:mm"))) {
+                    let block = $('#time-block-0');
+                    block.fadeTo('slow', 0.5);
+                }
+                if (moment().isAfter(moment('11:00', "hh:mm"))) {
+                    $('#time-block-1').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('12:00', "hh:mm"))) {
+                    $('#time-block-2').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('13:00', "hh:mm"))) {
+                    $('#time-block-3').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('14:00', "hh:mm"))) {
+                    $('#time-block-4').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('15:00', "hh:mm"))) {
+                    $('#time-block-5').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('16:00', "hh:mm"))) {
+                    $('#time-block-6').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('17:00', "hh:mm"))) {
+                    $('#time-block-7').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('18:00', "hh:mm"))) {
+                    $('#time-block-8').fadeTo('slow', 0.5);
+                };
+                if (moment().isAfter(moment('19:00', "hh:mm"))) {
+                    $('#time-block-9').fadeTo('slow', 0.5);
+                };
+
             });
+
             function update() {
                 $('#clock').html(moment().format('MMMM D, YYYY H:mm:ss'));
             }
 
             setInterval(update, 1000);
+
+
 
         });
     </script>
