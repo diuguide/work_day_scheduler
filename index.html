@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        .startbtn {
+            color: #84A98C;
+        }
+
+        #time-block {
+            border: 1px solid black;
+            margin: 5px;
+            padding: 5px;
+            border-radius: 5px;
+            background-color: #52796F;
+        }
+
+        #col-btn-left {
+            border: 1px solid black;
+            padding: 20px;
+            background-color: #84A98C;
+        }
+
+        #col-btn-middle {
+            border: 1px solid black;
+            padding: 20px;
+            background-color: #52796F;
+
+        }
+
+        .col-1 {
+            border: 1px solid black;
+            padding: 20px;
+            background-color: #2F3E46;
+            color: #CAD2C5;
+        }
+
+        .col-1:hover {
+            border: 1px solid black;
+            padding: 20px;
+            background-color: #CAD2C5;
+            color: #2F3E46;
+        }
+
+        .localClock {
+            color: #462255;
+            font-size: 50px;
+            font-weight: 1000;
+            border: 1px solid black;
+        }
+
+        #firstName {
+            text-align: left;
+        }
+
+        .form-control {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        #time {
+            background-color: #84A98C;
+        }
+
+        #task {
+            font-size: 16px;
+            font-weight: bold;
+            color: #CAD2C5;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" id="container">
+        <div class="row">
+            <div class="col-2 m-2">
+                <button class="startbtn" id="renderBlock">Print Schedule</button>
+            </div>
+        </div>
+
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            const hours = [
+                "9:00",
+                "10:00",
+                "11:00",
+                "12:00",
+                "1:00",
+                "2:00",
+                "3:00",
+                "4:00",
+                "5:00",
+                "6:00",
+                "7:00",
+                "8:00",
+                "9:00",
+            ];
+            let rowEl = $("<div>");
+            let buttonEl = $("<button>").attr('id', 'editBtn');
+
+            function renderSchedule() {
+                for (i = 0; i < hours.length; i++) {
+                    var hourString = i.toString();
+                    rowEl.addClass("row");
+                    rowEl.attr("id", "time-block");
+                    $("#container").append(rowEl);
+                    rowEl.append($("<div>").text(hours[i]).addClass('col-1').attr('id', 'time'));
+                    rowEl.append($("<div>").addClass('col-10').attr('id', `${hourString}`));
+                    let middleCol = $("#" + hourString);
+                    middleCol.append($('<form>').attr('id', 'textBox-' + hourString));
+                    $('#textBox-' + hourString).append($('<textarea>').addClass('form-control').attr('id', 'textForm-' + hourString).attr('rows', '1'));
+                    rowEl.append($("<button>").text('Add Task').addClass('col-1').attr('id', 'editBtn-' + hourString));
+                }
+                $('#editBtn-0').on('click', function () {
+                    let taskInput = $('#textForm-0').val();
+                    $('#0').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-1').on('click', function () {
+                    let taskInput = $('#textForm-1').val();
+                    $('#1').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-2').on('click', function () {
+                    let taskInput = $('#textForm-2').val();
+                    $('#2').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-3').on('click', function () {
+                    let taskInput = $('#textForm-3').val();
+                    $('#3').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-4').on('click', function () {
+                    let taskInput = $('#textForm-4').val();
+                    $('#4').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-5').on('click', function () {
+                    let taskInput = $('#textForm-5').val();
+                    $('#5').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-6').on('click', function () {
+                    let taskInput = $('#textForm-6').val();
+                    $('#6').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-7').on('click', function () {
+                    let taskInput = $('#textForm-7').val();
+                    $('#7').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-8').on('click', function () {
+                    let taskInput = $('#textForm-8').val();
+                    $('#8').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-9').on('click', function () {
+                    let taskInput = $('#textForm-9').val();
+                    $('#9').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-10').on('click', function () {
+                    let taskInput = $('#textForm-10').val();
+                    $('#10').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-11').on('click', function () {
+                    let taskInput = $('#textForm-11').val();
+                    $('#11').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+                $('#editBtn-12').on('click', function () {
+                    let taskInput = $('#textForm-12').val();
+                    $('#12').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('textarea').val('');
+                })
+            }
+
+            $('#renderBlock').on('click', renderSchedule);
+
+        });
+    </script>
+</body>
+
+</html>
