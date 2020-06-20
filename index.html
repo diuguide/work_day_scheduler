@@ -203,21 +203,40 @@
                 let hour10 = localStorage.getItem('task1');
                 let hour11 = localStorage.getItem('task2');
                 let hour12 = localStorage.getItem('task3');
+                let hour13 = localStorage.getItem('task4');
+                let hour14 = localStorage.getItem('task5');
+                let hour15 = localStorage.getItem('task6');
+                let hour16 = localStorage.getItem('task7');
+                let hour17 = localStorage.getItem('task8');
+                let hour18 = localStorage.getItem('task9');
 
                 let localArray = {
                     hour9,
                     hour10,
                     hour11,
                     hour12,
-
+                    hour13,
+                    hour14,
+                    hour15,
+                    hour16,
+                    hour17,
+                    hour18,
                 };
                 localStorage.setItem('schedule', JSON.stringify(localArray));
             });
             // retrieves information from local storage //
             $('#loadBtn').on('click', function fromLocalStorage() {
-                let storage = localStorage.getItem('schedule');
+                let storage = JSON.parse(localStorage.getItem('schedule'));
                 console.log(storage);
-            })
+                console.log(storage.hour9);
+                let newDiv = $('<div>').attr('id', 'saveEl');
+                $('#container').append(newDiv).attr('id', 'hour9').text(storage.hour9);
+                $('#container').append(newDiv).attr('id', 'hour10').text(storage.hour10);
+                $('#container').append(newDiv).attr('id', 'hour11').text(storage.hour11);
+                $('#container').append(newDiv).attr('id', 'hour12').text(storage.hour12);
+
+
+            });
 
             // sets the color of time blocks before the current time //
             $('#renderBlock').on('click', function () {
