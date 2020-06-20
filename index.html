@@ -127,21 +127,26 @@
                 // add event listeners to the 'add task' buttons which add content from each text area to each time block //
                 $('#editBtn-0').on('click', function () {
                     let taskInput = $('#textForm-0').val();
-                    $('#0').append($('<div>').attr('id', 'task0').text(taskInput).css('margin', '5px'));
+                    localStorage.setItem('task0', taskInput);
+                    $('#0').append($('<div>').attr('id', 'task0').html(taskInput).css('margin', '5px'));
                     $('textarea').val('');
+
                 })
                 $('#editBtn-1').on('click', function () {
                     let taskInput = $('#textForm-1').val();
+                    localStorage.setItem('task1', taskInput);
                     $('#1').append($('<div>').attr('id', 'task1').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-2').on('click', function () {
                     let taskInput = $('#textForm-2').val();
+                    localStorage.setItem('task2', taskInput);
                     $('#2').append($('<div>').attr('id', 'task2').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-3').on('click', function () {
                     let taskInput = $('#textForm-3').val();
+                    localStorage.setItem('task3', taskInput);
                     $('#3').append($('<div>').attr('id', 'task3').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
@@ -192,31 +197,27 @@
                 })
 
             }
+            // saves items inputted into the schedule into an array then into local storage //
             $('#save').on('click', function toLocalStorage() {
-                let hour9 = $().val();
-                let hour10 = $('#task1').val();
-                let hour11 = $('#task2').val();
-                let hour12 = $('#task3').val();
-                let hour13 = $('#task4').val();
-                let hour14 = $('#task5').val();
-                let hour15 = $('#task6').val();
-                let hour16 = $('#task7').val();
-                let hour17 = $('#task8').val();
-                let hour18 = $('#task9').val();
+                let hour9 = localStorage.getItem('task0');
+                let hour10 = localStorage.getItem('task1');
+                let hour11 = localStorage.getItem('task2');
+                let hour12 = localStorage.getItem('task3');
+
                 let localArray = {
                     hour9,
                     hour10,
                     hour11,
                     hour12,
-                    hour13,
-                    hour14,
-                    hour15,
-                    hour16,
-                    hour17,
-                    hour18,
+
                 };
-                console.log(hour9);
+                localStorage.setItem('schedule', JSON.stringify(localArray));
             });
+            // retrieves information from local storage //
+            $('#loadBtn').on('click', function fromLocalStorage() {
+                let storage = localStorage.getItem('schedule');
+                console.log(storage);
+            })
 
             // sets the color of time blocks before the current time //
             $('#renderBlock').on('click', function () {
