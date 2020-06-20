@@ -228,12 +228,8 @@
             $('#loadBtn').on('click', function fromLocalStorage() {
                 let storage = JSON.parse(localStorage.getItem('schedule'));
                 console.log(storage);
-                console.log(storage.hour9);
-                let newDiv = $('<div>').attr('id', 'saveEl');
-                $('#container').append(newDiv).attr('id', 'hour9').text(storage.hour9);
-                $('#container').append(newDiv).attr('id', 'hour10').text(storage.hour10);
-                $('#container').append(newDiv).attr('id', 'hour11').text(storage.hour11);
-                $('#container').append(newDiv).attr('id', 'hour12').text(storage.hour12);
+
+
 
 
             });
