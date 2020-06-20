@@ -152,46 +152,55 @@
                 })
                 $('#editBtn-4').on('click', function () {
                     let taskInput = $('#textForm-4').val();
+                    localStorage.setItem('task4', taskInput);
                     $('#4').append($('<div>').attr('id', 'task4').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-5').on('click', function () {
                     let taskInput = $('#textForm-5').val();
+                    localStorage.setItem('task5', taskInput);
                     $('#5').append($('<div>').attr('id', 'task5').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-6').on('click', function () {
                     let taskInput = $('#textForm-6').val();
+                    localStorage.setItem('task6', taskInput);
                     $('#6').append($('<div>').attr('id', 'task6').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-7').on('click', function () {
                     let taskInput = $('#textForm-7').val();
+                    localStorage.setItem('task7', taskInput);
                     $('#7').append($('<div>').attr('id', 'task7').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-8').on('click', function () {
                     let taskInput = $('#textForm-8').val();
+                    localStorage.setItem('task8', taskInput);
                     $('#8').append($('<div>').attr('id', 'task8').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-9').on('click', function () {
                     let taskInput = $('#textForm-9').val();
+                    localStorage.setItem('task9', taskInput);
                     $('#9').append($('<div>').attr('id', 'task9').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-10').on('click', function () {
                     let taskInput = $('#textForm-10').val();
+                    localStorage.setItem('task10', taskInput);
                     $('#10').append($('<div>').attr('id', 'task10').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-11').on('click', function () {
                     let taskInput = $('#textForm-11').val();
+                    localStorage.setItem('task11', taskInput);
                     $('#11').append($('<div>').attr('id', 'task11').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-12').on('click', function () {
                     let taskInput = $('#textForm-12').val();
+                    localStorage.setItem('task12', taskInput);
                     $('#12').append($('<div>').attr('id', 'task12').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
@@ -199,6 +208,7 @@
             }
             // saves items inputted into the schedule into an array then into local storage //
             $('#save').on('click', function toLocalStorage() {
+                alert('Saved!');
                 let hour9 = localStorage.getItem('task0');
                 let hour10 = localStorage.getItem('task1');
                 let hour11 = localStorage.getItem('task2');
@@ -228,7 +238,8 @@
             $('#loadBtn').on('click', function fromLocalStorage() {
                 let storage = JSON.parse(localStorage.getItem('schedule'));
                 console.log(storage);
-
+                console.log(storage.hour9);
+                $('#task0').append(storage.hour9);
 
 
 
@@ -318,5 +329,10 @@
     </script>
     <script src="moment.js"></script>
 </body>
+<footer>
+    <div class="footer">
+        <p>&copy Copyright: Everett Diuguid 2020</p>
+    </div>
+</footer>
 
 </html>
