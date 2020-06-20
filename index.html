@@ -24,6 +24,7 @@
             padding: 5px;
             border-radius: 5px;
             background-color: #52796F;
+            color: #2f3e46;
         }
 
         #col-btn-left {
@@ -126,71 +127,97 @@
                 // add event listeners to the 'add task' buttons which add content from each text area to each time block //
                 $('#editBtn-0').on('click', function () {
                     let taskInput = $('#textForm-0').val();
-                    $('#0').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#0').append($('<div>').attr('id', 'task0').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-1').on('click', function () {
                     let taskInput = $('#textForm-1').val();
-                    $('#1').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#1').append($('<div>').attr('id', 'task1').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-2').on('click', function () {
                     let taskInput = $('#textForm-2').val();
-                    $('#2').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#2').append($('<div>').attr('id', 'task2').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-3').on('click', function () {
                     let taskInput = $('#textForm-3').val();
-                    $('#3').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#3').append($('<div>').attr('id', 'task3').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-4').on('click', function () {
                     let taskInput = $('#textForm-4').val();
-                    $('#4').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#4').append($('<div>').attr('id', 'task4').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-5').on('click', function () {
                     let taskInput = $('#textForm-5').val();
-                    $('#5').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#5').append($('<div>').attr('id', 'task5').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-6').on('click', function () {
                     let taskInput = $('#textForm-6').val();
-                    $('#6').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#6').append($('<div>').attr('id', 'task6').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-7').on('click', function () {
                     let taskInput = $('#textForm-7').val();
-                    $('#7').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#7').append($('<div>').attr('id', 'task7').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-8').on('click', function () {
                     let taskInput = $('#textForm-8').val();
-                    $('#8').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#8').append($('<div>').attr('id', 'task8').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-9').on('click', function () {
                     let taskInput = $('#textForm-9').val();
-                    $('#9').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#9').append($('<div>').attr('id', 'task9').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-10').on('click', function () {
                     let taskInput = $('#textForm-10').val();
-                    $('#10').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#10').append($('<div>').attr('id', 'task10').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-11').on('click', function () {
                     let taskInput = $('#textForm-11').val();
-                    $('#11').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#11').append($('<div>').attr('id', 'task11').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
                 $('#editBtn-12').on('click', function () {
                     let taskInput = $('#textForm-12').val();
-                    $('#12').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
+                    $('#12').append($('<div>').attr('id', 'task12').text(taskInput).css('margin', '5px'));
                     $('textarea').val('');
                 })
 
             }
+            $('#save').on('click', function toLocalStorage() {
+                let hour9 = $().val();
+                let hour10 = $('#task1').val();
+                let hour11 = $('#task2').val();
+                let hour12 = $('#task3').val();
+                let hour13 = $('#task4').val();
+                let hour14 = $('#task5').val();
+                let hour15 = $('#task6').val();
+                let hour16 = $('#task7').val();
+                let hour17 = $('#task8').val();
+                let hour18 = $('#task9').val();
+                let localArray = {
+                    hour9,
+                    hour10,
+                    hour11,
+                    hour12,
+                    hour13,
+                    hour14,
+                    hour15,
+                    hour16,
+                    hour17,
+                    hour18,
+                };
+                console.log(hour9);
+            });
+
             // sets the color of time blocks before the current time //
             $('#renderBlock').on('click', function () {
                 renderSchedule();
@@ -270,6 +297,7 @@
             }
 
             setInterval(update, 1000);
+
         });
     </script>
     <script src="moment.js"></script>
