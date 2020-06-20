@@ -100,7 +100,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
-
             const hours = [
                 "9:00",
                 "10:00",
@@ -113,25 +112,18 @@
                 "17:00",
                 "18:00",
             ];
-            let rowEl = $("<div>");
-
-
+            //function to render the timeblocks with seperate id's for each element//
             function renderSchedule() {
                 for (i = 0; i < hours.length; i++) {
                     var hourString = i.toString();
-
                     $("#container").append($('<div>').addClass('row blocks').attr("id", "time-block-" + hourString));
-
                     $('#time-block-' + hourString).append($("<div>").text(hours[i]).addClass('col-1').attr('id', 'time'));
-
                     $('#time-block-' + hourString).append($("<div>").addClass('col-10').attr('id', `${hourString}`));
-
                     $("#" + hourString).append($('<form>').attr('id', 'textBox-' + hourString));
-
                     $('#textBox-' + hourString).append($('<textarea>').addClass('form-control').attr('id', 'textForm-' + hourString).attr('rows', '1'));
-
                     $('#time-block-' + hourString).append($("<button>").text('Add Task').addClass('col-1').attr('id', 'editBtn-' + hourString));
                 }
+                // add event listeners to the 'add task' buttons which add content from each text area to each time block //
                 $('#editBtn-0').on('click', function () {
                     let taskInput = $('#textForm-0').val();
                     $('#0').prepend($('<div>').attr('id', 'task').text(taskInput).css('margin', '5px'));
@@ -199,7 +191,7 @@
                 })
 
             }
-
+            // sets the color of time blocks before the current time //
             $('#renderBlock').on('click', function () {
                 renderSchedule();
                 // IS BEFORE //
@@ -237,7 +229,7 @@
                     $('#time-block-10').css('background-color', '#d4fcc3')
                 };
 
-
+                // sets the color of the time blocks after the current time //
                 // IS AFTER //
                 if (moment().isAfter(moment('10:00', "hh:mm"))) {
                     $('#time-block-0').css('background-color', '#cad2c5')
@@ -272,15 +264,12 @@
 
 
             });
-
+            // function for the clock at the top of the page //
             function update() {
                 $('#clock').html(moment().format('MMMM D, YYYY H:mm:ss'));
             }
 
             setInterval(update, 1000);
-
-
-
         });
     </script>
     <script src="moment.js"></script>
