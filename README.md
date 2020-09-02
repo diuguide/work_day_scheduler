@@ -1,10 +1,24 @@
-# work_day_scheduler
-A simple calendar application.
-
-In this program the user loads the page.  The user then selects 'print schedule' which prints out a series of time blocks.  The user can input a task in the textarea and then add it to the schedule using the Add Task button.  The user can then click 'Save' to save the current schedule or 'Load Recent' to load a previously created schedule.
-
-I used html, css, javascript, and jquery to dynamically produce the HTML on this page.  I ran into difficulty assigning individual id's to all the dynamically produced elements.  Using a for loop and the i variable to create unique id's  for each element fixed this.  I had difficulty getting 'isBetween' to work with the moment() library and eventually settled on the current hour being a standard color and using isAfter and isBefore to change the color of the color blocks during the day.  
-
-Update: currently having difficulty working with local storage and the dynamically produced HTML.  will continue to update.  I am able to store the inputs into local storage, I am still having trouble recalling then printing the saved info into the dynamicaly produced HTML.  The info stores into the local storage, it is console.log'd currently.
-
-<img src="screenshot.png">
+# Work-Day Scheduler 
+  [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/version/2/0/code_of_conduct/)
+  # Table of Contents
+  * [Project Description](#project-description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Tests](#tests)
+  * [License](#license)
+  * [Contributions](#contributions)
+  * [Questions](#questions)
+  # Project Description
+  This is a work day scheduler, the user can log in, input todos, these can be saved and reviewd at a later time.
+  # Installation
+  This app can be used through the browser
+  # Usage
+  All functions of this app can be accessed through the browser
+  # Tests
+  No testing
+  # License
+  Licensed under the [GNU GPLv3 License](https://spdx.org/licenses/GPL-3.0-or-later.html).
+  # Contributions
+  If you would like to contribute to this project, please follow the [Contributor Covenant Code of Conduct](https://www.contributor-covenant.org/version/2/0/code_of_conduct/) guidelines.
+  # Questions
+  For additional information, please e-mail the project manager [Everett Diuguid](https://github.com/undefined/): everett.diuguid@gmail.com.  
