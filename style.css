@@ -1,0 +1,76 @@
+.startbtn {
+    color: #84A98C;
+
+}
+
+#clock {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.blocks {
+    border: 1px solid black;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #52796F;
+    color: #2f3e46;
+}
+
+#col-btn-left {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #84A98C;
+}
+
+#col-btn-middle {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #52796F;
+
+}
+
+.col-1 {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #2F3E46;
+    color: #CAD2C5;
+}
+
+.col-1:hover {
+    border: 1px solid black;
+    padding: 20px;
+    background-color: #CAD2C5;
+    color: #2F3E46;
+}
+
+.localClock {
+    color: #462255;
+    font-size: 50px;
+    font-weight: 1000;
+    border: 1px solid black;
+}
+
+#firstName {
+    text-align: left;
+}
+
+.form-control {
+    margin-top: 10px;
+    width: 100%;
+}
+
+#time {
+    background-color: #84A98C;
+}
+
+#task {
+    font-size: 16px;
+    font-weight: bold;
+    color: #2f3e46;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
