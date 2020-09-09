@@ -1,4 +1,5 @@
 $(document).ready(function () {
+    let schedule = localStorage.getItem('schedule') ? JSON.parse(localStorage.getItem('schedule')) : {};
     const hours = [
         "9:00",
         "10:00",
@@ -13,6 +14,9 @@ $(document).ready(function () {
     ];
     //function to render the timeblocks with seperate id's for each element//
     function renderSchedule() {
+
+
+        console.log('test');
         for (i = 0; i < hours.length; i++) {
             var hourString = i.toString();
             $("#container").append($('<div>').addClass('row blocks').attr("id", "time-block-" + hourString));
@@ -20,16 +24,30 @@ $(document).ready(function () {
             $('#time-block-' + hourString).append($("<div>").addClass('col-10').attr('id', `${hourString}`));
             $("#" + hourString).append($('<form>').attr('id', 'textBox-' + hourString));
             $('#textBox-' + hourString).append($('<textarea>').addClass('form-control').attr('id', 'textForm-' + hourString).attr('rows', '1'));
+            $('#textBox-' + hourString).append($('<textar>').addClass('form-control').attr('id', 'textForm-' + hourString).attr('rows', '1'));
+
             $('#time-block-' + hourString).append($("<button>").text('Add Task').addClass('col-1').attr('id', 'editBtn-' + hourString));
+            console.log('editBtn-' + hourString);
         }
+
+
         // add event listeners to the 'add task' buttons which add content from each text area to each time block //
         $('#editBtn-0').on('click', function () {
+            alert('alert')
             let taskInput = $('#textForm-0').val();
-            localStorage.setItem('task0', taskInput);
+            localStorage.setItem('task0', taskInput)
             $('#0').append($('<div>').attr('id', 'task0').html(taskInput).css('margin', '5px'));
+            console.log(schedule);
+            if (schedule.hour9) {
+                $('#0').append(schedule.hour9)
+            }
+
             $('textarea').val('');
 
         })
+
+        $('#edit-btn-0').click();
+
         $('#editBtn-1').on('click', function () {
             let taskInput = $('#textForm-1').val();
             localStorage.setItem('task1', taskInput);
@@ -138,8 +156,6 @@ $(document).ready(function () {
         console.log(storage);
         console.log(storage.hour9);
         $('#task0').append(storage.hour9);
-
-
 
     });
 
