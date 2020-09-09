@@ -1,9 +1,17 @@
 $(document).ready(() => {
     let dateEl = $("#date");
     let date = moment().format("MM/DD/YYYY");
+    let submitEl = $("#submitBtn");
     console.log(date);
     dateEl.append(date);
     timeColor();
+    submitEl.on("click", () => {
+        save();
+    })
+    function save() {
+        let task = $('#inputEl0').val();
+        $('#taskEl0').append(task);
+    }
     function timeColor() {
         if (moment().isBefore(moment('9:00', "hh:mm"))) {
             $('#hour0').css('background-color', '#d4fcc3')
